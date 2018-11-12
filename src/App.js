@@ -55,7 +55,7 @@ const releaseGraph = () => {
   develop.commit({ message: 'this is a commit' });
   master.commit({ message: 'this is a commit' });
   const release = develop
-    .branch('release/10.0.0')
+    .branch('release/<version>')
     .commit({ message: 'this is a commit' });
   develop
     .commit({ message: 'this is a commit' })
@@ -73,7 +73,7 @@ const featureDuringReleaseGraph = () => {
     .commit({ message: 'this is a commit' })
     .commit({ message: 'this is a commit' });
   const release = develop
-    .branch('release/10.0.0')
+    .branch('release/<version>')
     .commit({ message: 'this is a commit' });
   develop.commit({ message: 'this is a commit' });
   const bug = release
