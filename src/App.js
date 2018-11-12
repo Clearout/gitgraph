@@ -60,8 +60,10 @@ const releaseGraph = () => {
   develop
     .commit({ message: 'this is a commit' })
     .commit({ message: 'this is a commit' });
-  release.commit({ message: 'this is a commit' }).merge(master);
-  develop.commit({ message: 'this is a commit' });
+  release
+    .commit({ message: 'this is a commit' })
+    .merge(master)
+    .merge(develop);
 };
 
 const featureDuringReleaseGraph = () => {
@@ -80,7 +82,9 @@ const featureDuringReleaseGraph = () => {
   develop.commit({ message: 'this is a commit' });
   bug.commit({ message: 'this is a commit' });
   develop.commit({ message: 'this is a commit' });
-  bug.merge(release).merge(develop);
+  bug.merge(release);
+  release.merge(develop);
+  release.commit({ message: 'this is a commit' });
 };
 
 const hotfixGraph = () => {
